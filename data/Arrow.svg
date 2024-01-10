@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="177.49759mm"
+   height="111.91713mm"
+   viewBox="0 0 177.4976 111.91713"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="Arrow.svg"
+   inkscape:export-filename="C:\Users\markf\OneDrive\Documents\Projects\csci200\SetFinalProject\data\Arrow.png"
+   inkscape:export-xdpi="111.178"
+   inkscape:export-ydpi="111.178"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.33184274"
+     inkscape:cx="233.54436"
+     inkscape:cy="589.13449"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="2391"
+     inkscape:window-y="765"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-6.5304031,-112.82962)">
+    <path
+       sodipodi:type="star"
+       style="fill:#6c5353;fill-opacity:1;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="path996"
+       inkscape:flatsided="false"
+       sodipodi:sides="3"
+       sodipodi:cx="260.66565"
+       sodipodi:cy="308.88126"
+       sodipodi:r1="380.37296"
+       sodipodi:r2="247.24242"
+       sodipodi:arg1="-0.52359878"
+       sodipodi:arg2="0.52359877"
+       inkscape:rounded="0.2"
+       inkscape:randomized="0"
+       d="M 590.07829,118.69478 C 623.51002,176.60023 508.2156,374.597 474.78386,432.50246 441.35213,490.40792 327.52911,689.25421 260.66565,689.25421 193.80219,689.25421 79.979169,490.40792 46.547437,432.50247 13.115705,374.59701 -102.17873,176.60024 -68.746994,118.69478 -35.315262,60.789322 193.80218,61.63884 260.66565,61.63884 c 66.86346,-1e-6 295.98091,-0.849521 329.41264,57.05594 z"
+       transform="matrix(0.26458333,0,0,0.17832101,26.311409,101.83824)"
+       inkscape:transform-center-x="6.4659667"
+       inkscape:transform-center-y="-2.1909349" />
+  </g>
+</svg>

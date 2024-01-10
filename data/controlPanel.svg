@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="178.59866mm"
+   height="82.655502mm"
+   viewBox="0 0 178.59866 82.655502"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="controlPanel.svg"
+   inkscape:export-filename="C:\Users\markf\OneDrive\Documents\Projects\csci200\SetFinalProject\data\controlPanel.png"
+   inkscape:export-xdpi="111.178"
+   inkscape:export-ydpi="111.178"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#404040"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.93859299"
+     inkscape:cx="355.31908"
+     inkscape:cy="206.15965"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="2391"
+     inkscape:window-y="765"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-11.456046,-90.398567)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:27.7903;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       id="rect910"
+       width="178.59866"
+       height="82.655502"
+       x="11.456046"
+       y="90.398567"
+       ry="27.767073" />
+  </g>
+</svg>

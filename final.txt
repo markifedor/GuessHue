@@ -1,0 +1,166 @@
+TITLE
+    Name: Mark Fedorchuk
+    Section: B
+    Project Title: Guess Hue?
+
+PROBLEM DESCRIPTION
+
+    "Guess Hue?" would be a guessing game where you have to guess the rgb value of the given color, within a 
+given number of guesses. To make it easier to guess the color values are in multiples of an increment larger 
+than 1 that is also devisable by 255 (For 5, 15, or 51). I chose 15 for the increment as that seemed a happy 
+medium difficulty. The color would be displayed using sfml and the rgb values would be inputted using buttons 
+to increase or decrease the value by the increment. 
+
+So it would look something like this: 
+                  *color swatch*
+
+             🔼        🔼          🔼
+      ↩️     50		   125		   255    ✅
+             🔽        🔽          🔽
+
+	The incorrect guesses are outputted to the console and if user wants it, a log txt file.
+
+
+PROGRAM DOCUMENTATION
+
+    Instructions for running the program
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    1. Unzip the .zip file (probably already have to be reading this). Make sure it
+       has a data folder with 5 pngs and a font file, and a empty log folder. If 
+       there is no log folder create one. It should be called "log"
+    
+    2. Build the program with SFML
+
+    3. After running the .exe created by the makefile, it will prompt you if you want to save 
+       a log of the game. If you press input "y" it will prompt you for a file name, and other 
+       input besides a simple enter press will not prompt for a file.
+
+        Note a. I recommend running the application twice. Once with file opening and one without
+        Not b. If you are saving to a file note that the filename you give does not include the 
+        extension as the program only allows .txt's to be created
+    
+    4. The RenderWindow created will request focus after opening. This shouldn't not affect you
+       if you're not running the exe not from VS Code, but if so, just click on the app on the Task Bar.
+    
+    5. The game window has a color swatch big and centered horizontally on window. That's the color to
+       guess. Guessing is done by selecting values of R, G, B and pressing the green check button on the right.
+       The value of each color(red, green and blue) is displayed on screen. The values are modifed by clicking
+       the up and down arrows on screen near the corresponding color. It increments up by 15 as coded right now.
+       The values at the start of a round will be the most central color of gray possible using the increment given
+       currently (120, 120, 120).
+
+    6. The hints are given in the console. ">" means the guessed color is greater than the value you inputted
+       "<" means the guessed color is less than the input, and "=" means they are the same value.
+    
+    7. Input guesses until you get the right answer or you want to reset the game to get a new color using 
+       the red reset button on the left of the screen.
+        If you won the game, and you asked to save to a file it will save it automatically once you win.
+        If you pressed the reset button, and asked to save a file earlier
+            it will tell you it will save the game and restart once clicking the restart button again
+
+    8. To play another round without restarting the .exe you press the restart button twice as the first
+       time it asks if you are sure.
+       To quit the game at any time you exit out of the window like a normal application
+
+
+    For modification and extension
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Hello fellow programmer. The game is layed out through 3 source files. A main.cpp, and two object .hpp's.
+        
+        We'll start with the object stored in Game.hpp, Game. This object stores whether the game has been won, the correct color,
+    and gives hints based on the stored color marking the won boolean variable as true if the guessed color by the player
+    is the same as the stored correct color. That is done in the giveColorHints() function. There are also two getters for the variables
+    member variables of the game.
+
+        The object stored in Logger.hpp, The Logger stores all the guesses and hints given to it. The current implementation has it being 
+    fed the guesses through creating a Color object using variables rVal, gVal, and bVal for the inputs. It is fed the hints from the output
+    of a Game object's giveColorHints() function. The rVal, gVal, and bVal variables currently are controlled through the arrows on screen, but
+    the color used for giveColorHints() could be gotten somehow else.
+
+        The main.cpp includes all the visual objects and how they should be put on screen. The objects that are buttons are stored in a 
+    vector and change color when hovered by checking the coordinates of the mouse and seeing if it intersects the bounding box of each
+    button in the vector. The main function then uses a mouse released event along with the same technique used for checking if hovering 
+    over buttons to detect clicking on a button with which it then runs the code associated with that function.
+
+    Things I'd like to see made/added using my code or improvements to my code
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        1. A completly console version that somehow displays the color properly.
+
+        2. More things put into ojects such as making another .hpp file that control all the on screen objects and/or putting all objects into        
+           a list of some sort to window.draw() all of them. This could make the main more readable
+
+        3. An abstraction for r g and b variables. They could be a class that keeps track of what color it is, so that you don't have
+           to write the same thing for all 3 color values every time.
+
+        4. The complete opposite of number 1: printing the hints on the render window and do file operations in the window as well to eliminate
+           all console uses as it ruins the experience a bit
+
+        5. A statistical analysis of the game.
+
+
+LIST DATA STRUCTURE
+
+        I used vectors for my list data structure. I used 4 in total. One to store all the button objects, another to store all the guesses
+    the third to store all the hints, and the hints themselves are vectors of chars.
+        (vector<Sprite*> buttons in main.cpp, vector<Color> guesses, vector<hint<char>> hints in Logger, and vector<char> hint in Game)
+
+        I chose to use vectors because I did not know how many guesses the player would make, and the list needed to be able to expand.
+    I was not concerned with the amount of space taken by doubling the capacity of the vector each time it would go over, because each 
+    guess and hint takes up only a few bytes of information. It probably would have been a better decision to store the singular hints in
+    arrays though because the size 3 of all of them creates a capacity of 4 which is wasting some space. I used vectors to store the 
+    button objects, mostly for consistency sake and ease of addition to it with it being easy to add more buttons if needed.
+        
+        I will go over the way the buttons vector is used because I thought it was cool, since the rest are just added to and used
+    to write directly. The buttons vector is used to go through all of the all of the sprite objects that should act like buttons,
+    and changes their color if the mouse is hovered over. This was done through an event, so naturally only one could be highlighted
+    at a time (well I was struggling with that at first, but I got there eventually). If the bounding box of the particular button 
+    sprite contains the mouse coordinates, it will darken the fill color of the sprite which changes it's default of (255, 255, 255)
+    to (200, 200, 200), multiplying each pixel of the sprite by 200/255 (I believe) to darken it. To my knowledge, this implementation
+    is the best as it allows for adding of as many buttons as needed. All that needs to happen is to add them to the list. Well only for
+    the hovering. Actually implementing the click requires making a unique if in the event if tree to run the code needed.
+
+
+TESTS
+
+    1. If you put anything into the "Do you want to save a log of this game?(y/N) " input, but "y" or "Y", it will continue. It does ignore
+       every character until the '\n' created by the enter key. If I remove the cin.ignore() function call that clears the cin, it will mess
+       up the inputs of the file name. If simply pressing enter without typing anything, it will move the cursor down and nothing else. This 
+       could be confusing for people, but I see no way around this.
+    
+    2. The file input is well handled as it will quit if the file does not load properly but not before saying to try creating the log folder,
+       as that is a known reason for failure. Also, putting in a name of a file that contains a period in it (such as an accidental log1.txt.txt
+       by inputting "log1.txt" when asked for the file name), unless the operating system is really old, the file should be ok to use. I didn't 
+       find it necessary to include a message about this as they will see this the first time they look at their file.
+    
+    3. Inputting the name of a file that already exists just appends the game log to that file, so no prior data is deleted.
+
+    4. Pressing any buttons while the game is won besides the reset button does nothing. The user will know to press the reset button because 
+       of the console dirrections.
+
+    5. Closing the application at any time does not leak memory, as the only object stored on the free store, the Logger object is deleted 
+       before closing fully.
+
+    6. Pressing the reset button does not reset the game unless pressed again. If any other button is pressed, the reset button will not reset
+       the game on it's next click, instead showing it's message to press again. This means you have to press the reset button twice in a row,
+       to reset.
+
+    7. Not really a test, but by requesting focus to the window after asking for the file input, it asks Windows to flash the window orange on 
+       the task bar, to which they will naturally decide to click on it. (I wanted to force focus, but I don't think I'm allowed that kind of
+       control)
+
+
+REFLECTIONS
+
+        I learned and improved on my skills a good amount because of this project. One major thing I improved was my ability to look for edge cases,
+    and creating solutions for them. Throughout the process of writing this I wrote more and more checks for stupidity, a few being added while 
+    writing this document. I also learned the power of making debug menus. Getting the buttons to darken when I hover over it, wasn't working, so
+    I made the coordinates display in the top left of the screen and to change the color of the coordinates when it detects that it's hovering
+    over a button (the object to do this is still in the code, and would work exactly as I used them if the relevent lines were uncommented) so that 
+    I could see why the buttons weren't highlighting. The reason it turned out, was because the coordinates of the mouse were in terms of the screen,
+    not the window, which I could see because the coordinates were being displayed.
+        
+        One thing I would do differently on another project is to write comments for my class members right away, since I did those at the last moment.
+    It revealed unused variables, functions, and even multiple ways of doing the same thing. 
+        
+        Even though this isn't a requirement, I want to say that one thing I would do the next time, is to write a document like this. It helped me a lot
+    with improving the program and the text I used to interact with the user.
