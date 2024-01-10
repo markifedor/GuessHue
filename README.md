@@ -8,4 +8,4 @@ May 4th, 2023
 
 The color you are guessing is displayed in the circle above the RGB value inputs. Inputting guesses is done through clicking on the arrows each color value and submitting with the green check box. The game is reset by clicking on the red reset button (twice). The results of your guess is displayed in a terminal window to the side.
 
-**\* Unfortunately this project uses the SFML library which is not included in the repo so the .exe cannot be run.\***
+**\* Unfortunately this project uses the SFML library which is not included in the repo so the .exe cannot be run. \***
