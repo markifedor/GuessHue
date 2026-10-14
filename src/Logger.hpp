@@ -19,6 +19,7 @@ using namespace sf;
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include <filesystem>
 using namespace std;
 
 class Logger{
@@ -91,8 +92,11 @@ Logger::Logger(const string FILE_NAME){
     string fullFileName = fileName + ".txt";
     cout << "Creating\\Opening file \"" << fullFileName << "\"" << endl;
     
+    filesystem::create_directory("log");
+
     // open file for parsing
-    outFile.open("log\\" + fullFileName, outFile.app);
+    outFile.open("log/" + fullFileName, outFile.app);
+    
     if(outFile.fail()){
         cerr << "Could not create file \"" << fullFileName << "\"" << endl;
         cerr << "Check if a \"log\" folder exists in the same folder as this exe.\nIf not create it. This might fix the issue, otherwise try again." << endl;
